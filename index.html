@@ -542,7 +542,7 @@
 
                 <h2>Time Elapsed Since</h2>
                 <br>
-                <div id="timer">0 Days 00:00:00</div>
+                <div id="timer">5 Days 00:00:00</div>
 
 
 
@@ -1057,6 +1057,7 @@
 <script>
   function startTimer() {
       let startOfDay = new Date();
+      startOfDay.setDate(startOfDay.getDate() - 5);
       startOfDay.setHours(0, 0, 0, 0);
 
       function updateTimer() {
