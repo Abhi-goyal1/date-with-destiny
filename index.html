@@ -493,6 +493,10 @@
       
       font-weight: bold;
     }
+    #timer {
+            font-size: 24px;
+            font-weight: bold;
+        }
   </style>
 </head>
 
@@ -535,7 +539,19 @@
               <!-- <h2 class="text-center mb-5">Our Playlist <i class="fas fa-headphones"></i></h2> -->
               <div class="playlist">
 
-                <h3 style="color: black;">Day 1:  Without You, But With You</h3>
+
+                <h2>Time Elapsed Since</h2>
+                <br>
+                <div id="timer">0 Days 00:00:00</div>
+
+
+
+
+
+
+
+
+                <!-- <h3 style="color: black;">Day 1:  Without You, But With You</h3>
                 <h1   class="display-4 mb-5 mt-5 "></i></h1>
                 <p style="text-align: justify">I woke up early morning, but everything reminded me of you, your call, your morning voice, and how you make everything feel like home.
 
@@ -547,21 +563,21 @@
                   <br>
                   But you’re not here, and I miss you. So here I am, writing this Day 1 just to tell you that no matter how many days pass, my love for you will only grow stronger and waiting for your call.
                   <br><br>
-                  Good Night, I love you. </p>
+                  Good Night, I love you. </p> -->
 
               </div>
               </div>
 
 
-            <div id="playlist" class="container py-5">
-              <!-- <h2 class="text-center mb-5">Our Playlist <i class="fas fa-headphones"></i></h2> -->
+            <!-- <div id="playlist" class="container py-5">
+              <h2 class="text-center mb-5">Our Playlist <i class="fas fa-headphones"></i></h2>
               <div class="playlist">
 
                 <h3 style="color: black;">Message Box</h3>
                 <h1   class="display-4 mb-5 mt-5 ">Can we Talk? Call me whenever you feel free for me.</i></h1>
 
               </div>
-              </div>
+              </div> -->
 
 
       </div>
@@ -1037,6 +1053,32 @@
 
     }
   </script>
+
+<script>
+  function startTimer() {
+      let startOfDay = new Date();
+      startOfDay.setHours(0, 0, 0, 0);
+
+      function updateTimer() {
+          let now = new Date();
+          let elapsed = Math.floor((now - startOfDay) / 1000);
+          let days = Math.floor(elapsed / 86400);
+          let hours = Math.floor((elapsed % 86400) / 3600);
+          let minutes = Math.floor((elapsed % 3600) / 60);
+          let seconds = elapsed % 60;
+          
+          document.getElementById("timer").innerText = 
+              days + " Days " +
+              String(hours).padStart(2, '0') + ":" +
+              String(minutes).padStart(2, '0') + ":" +
+              String(seconds).padStart(2, '0');
+      }
+      
+      setInterval(updateTimer, 1000);
+  }
+  
+  startTimer();
+</script>
 </body>
 
 </html>
